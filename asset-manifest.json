@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "/synoptic-news/static/css/main.7acaea2f.css",
-    "main.js": "/synoptic-news/static/js/main.07d3183d.js",
+    "main.js": "/synoptic-news/static/js/main.1c967c62.js",
+    "static/media/atmosphere-air.jpg": "/synoptic-news/static/media/atmosphere-air.82e94e1978d51fb2b5ba.jpg",
     "index.html": "/synoptic-news/index.html",
     "main.7acaea2f.css.map": "/synoptic-news/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/synoptic-news/static/js/main.07d3183d.js.map"
+    "main.1c967c62.js.map": "/synoptic-news/static/js/main.1c967c62.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/js/main.1c967c62.js"
   ]
 }
