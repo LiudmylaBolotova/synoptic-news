@@ -1,44 +1,45 @@
-import { useState, useEffect } from "react";
-import { Form, SectionForm, TitleForm, InputForm, BtnForm } from "./SearchForm.styled";
+import toast from 'react-hot-toast';
+import {
+  Form,
+  SectionForm,
+  TitleForm,
+  InputForm,
+  BtnForm,
+} from './SearchForm.styled';
 
+const SearchForm = ({ onSubmit }) => {
+  const handleSubmitForm = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const query = form.elements.query.value;
 
-const SearchForm = () => {
-    const [city, setCity] = useState('');
-
-    const handleChange = event => {
-        event.preventDefault();
-        // const form = event.currentTarget;
-        setCity(event.target.value);
-    //    form.reset();  
+    if (query.trim() === '') {
+      return toast.error(` Please enter a valid location!`);
     }
+    onSubmit(query);
+    console.log(query);
+    form.reset();
+  };
 
-    useEffect(() => {
-        if (city.length > 0) {
-        
-    }
-})
-
-    return (
-      <SectionForm>
-        <Form >
-          <TitleForm>Enter the name of the locality</TitleForm>
-          <label>
-            <InputForm
-              type="text"
-                        name="sity"
-                        value={city}
-              autocomplete="on"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="The city name can only contain letters, apostrophe, dashes and spaces. For example: New-York, Paris, Kyiv, London."
-                        required
-                        onChange={handleChange}
-            />
-          </label>
-          <BtnForm type="submit">Search</BtnForm>
-        </Form>
-      </SectionForm>
-    );
-}
-
+  return (
+    <SectionForm>
+      <Form onSubmit={handleSubmitForm}>
+        <TitleForm>Enter the name of the locality</TitleForm>
+        <label>
+          <InputForm
+            type="text"
+            name="query"
+            autocomplete="on"
+            placeholder="Search images and photos"
+            // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            // title="The city name can only contain letters, apostrophe, dashes and spaces. For example: New-York, Paris, Kyiv, London."
+            //           required
+          />
+        </label>
+        <BtnForm type="submit">Search</BtnForm>
+      </Form>
+    </SectionForm>
+  );
+};
 
 export default SearchForm;

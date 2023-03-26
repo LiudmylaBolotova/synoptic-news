@@ -4,7 +4,7 @@ import img from '../Images/atmosphere-air.jpg';
 export const StyledMainSection = styled.div`
   background-image: url(${img});
   width: 100%;
-  height: 500px;
+  min-height: 500px;
   /* display: flex;
   flex-direction: column; */
 
