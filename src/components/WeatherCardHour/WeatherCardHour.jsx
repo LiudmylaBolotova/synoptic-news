@@ -1,35 +1,71 @@
-const WeatherCardHour = ({ info }) => {
-    const forecast = info.forecast.forecastday;
- 
+import {
+  StyledCard,
+  StyledSection,
+  StyledFcAlarmClock,
+  StyledTitle,
+  StyledPartList,
+  SectionDate,
+  StyledItemWeather,
+  StyledList,
+  StyledItem,
+} from './WeatherCardHour.styled';
 
-    
-     return (
-       <>
-         <h2>Detailed hourly weather forecast</h2>
-         {forecast ? (
-           forecast.map(({ date, hour }) => (
-             <ul key={date}>
-               <li>
-                 {hour.map(({ time, temp_c }) => (
-                   <div key={time}>
-                     <p>Forecast for {time}</p>
-                     <p>Temperature: {temp_c} C</p>
-                     {/* <p>{time.chance_of_rain}</p>
-                         <p>{time.condition.icon }</p> */}
-                   </div>
-                 ))}
-               </li>
-             </ul>
-           ))
-         ) : (
-           <ul>
-             <li>
-               <p>ERROR FORECAST</p>
-             </li>
-           </ul>
-         )}
-       </>
-     );
-}
+const WeatherCardHour = ({ info }) => {
+  const forecast = info.forecast.forecastday;
+
+  return (
+    <StyledCard>
+      <StyledTitle>Hourly weather forecast for the next 3 days</StyledTitle>
+      <StyledSection>
+        {forecast ? (
+          forecast.map(({ date, hour }) => (
+            <StyledPartList key={date}>
+              <div>
+                {hour.map(
+                  ({
+                    time,
+                    temp_c,
+                    chance_of_rain,
+                    cloud,
+                    icon,
+                    condition,
+                    feelslike_c,
+                  }) => (
+                    <div key={time}>
+                      <SectionDate>
+                        <StyledFcAlarmClock />
+                        <h4>Forecast for {time}</h4>
+                      </SectionDate>
+
+                      <StyledItemWeather>
+                        <img src={condition.icon} alt={'icon'} />
+                        <p>{condition.text}</p>
+                      </StyledItemWeather>
+
+                      <StyledList>
+                        <StyledItem>Cloud: {cloud}</StyledItem>
+                        <StyledItem>Temperature: {temp_c} C</StyledItem>
+                        <StyledItem>Feelslike: {feelslike_c} C</StyledItem>
+                        <StyledItem>
+                          Chance of rain: {chance_of_rain}
+                        </StyledItem>
+                      </StyledList>
+                    </div>
+                  )
+                )}
+              </div>
+            </StyledPartList>
+          ))
+        ) : (
+          <ul>
+            <li>
+              <p>ERROR FORECAST</p>
+            </li>
+          </ul>
+        )}
+      </StyledSection>
+    </StyledCard>
+  );
+};
 
 export default WeatherCardHour;

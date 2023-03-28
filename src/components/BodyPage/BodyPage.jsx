@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
+import Loader from '../Loader/Loader';
 import { StyledMainSection } from './BodyPage.styled';
 import SearchForm from 'components/SearchForm';
 import WeatherCardNow from 'components/WeatherCardNow';
@@ -18,11 +19,9 @@ export const BodyPage = () => {
   const [status, setStatus] = useState(Status.IDLE);
   const [info, setInfo] = useState('');
   const [query, setQuery] = useState('');
-  
 
   const handleSearchForm = query => {
-    
-    setQuery(query)
+    setQuery(query);
   };
 
   useEffect(() => {
@@ -30,7 +29,7 @@ export const BodyPage = () => {
     if (!query) {
       return;
     }
-setStatus(Status.PENDING);
+    setStatus(Status.PENDING);
     axios
       .get(
         `http://api.weatherapi.com/v1/forecast.json?key=950c57b6664c40c7867164945232503&q=${query}&days=3&aqi=no&alerts=no`,
@@ -42,14 +41,11 @@ setStatus(Status.PENDING);
         const responce = res.data;
         setStatus(Status.RESOLVED);
         setInfo(responce);
-        
-        
       })
       .catch(error => {
         setStatus(Status.REJECTED);
         // return toast.error(`Please enter a valid location!`);
         return error.massage;
-        
       });
 
     return () => {
@@ -74,22 +70,20 @@ setStatus(Status.PENDING);
     <>
       <StyledMainSection>
         <SearchForm onSubmit={handleSearchForm} />
-        <div>PENDING</div>
+        <Loader />
       </StyledMainSection>
-    </>
+    </>;
   }
 
-  if (status === Status.RESOLVED ) {
+  if (status === Status.RESOLVED) {
     return (
       <>
-        <div>
-          <StyledMainSection>
-            <SearchForm onSubmit={handleSearchForm} />
-            <WeatherCardNow info={info} />
-            <ForecastDay info={info}></ForecastDay>
-            <WeatherCardHour info={info}></WeatherCardHour>
-          </StyledMainSection>
-        </div>
+        <StyledMainSection>
+          <SearchForm onSubmit={handleSearchForm} />
+          <WeatherCardNow info={info} />
+          <ForecastDay info={info}></ForecastDay>
+          <WeatherCardHour info={info}></WeatherCardHour>
+        </StyledMainSection>
       </>
     );
   }
@@ -104,8 +98,6 @@ setStatus(Status.PENDING);
       </>
     );
   }
-
-
 };
 
 export default BodyPage;

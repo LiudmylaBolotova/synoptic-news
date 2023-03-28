@@ -1,14 +1,15 @@
 import styled from "styled-components";
+import img from '../Images/blue-sky-with-clouds-background.jpg';
 
 export const SectionForm = styled.div`
+  background-image: url(${img});
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  /* margin-top: 50px; */
-  
-  border: ${p => p.theme.borders.normal};
+  border-bottom: ${p => p.theme.borders.normal};
 `;
 
 export const Form = styled.form`
@@ -16,24 +17,20 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  
- 
-  /* border: ${p => p.theme.borders.normal}; */
 `;
 
 export const TitleForm = styled.h2`
   font-size: ${p => p.theme.fontSizes[2]}px;
   margin: ${p => p.theme.space[6]}px;
-  color: ${p => p.theme.colors.backgroundColor};
+  color: ${p => p.theme.colors.mainColor};
 `;
 
 export const InputForm = styled.input`
   border: ${p => p.theme.borders.middle};
-  border-radius: ${p => p.theme.radii.round}px;
-  /* color: ${p => p.theme.colors.text}; */
-  width: ${p => p.theme.sizes.width[6]}px;
-  height: ${p => p.theme.sizes.height[1]}px;
+  border-radius: ${p => p.theme.radii.formRound}px;
+
+  width: ${p => p.theme.sizes.width[7]}px;
+  height: ${p => p.theme.sizes.height[2]}px;
   :active,
   :hover,
   :focus {
@@ -43,10 +40,10 @@ export const InputForm = styled.input`
 `;
 
 export const BtnForm = styled.button`
-  width: ${p => p.theme.sizes.width[3]}px;
-  height: ${p => p.theme.sizes.height[3]}px;
+  width: ${p => p.theme.sizes.width[4]}px;
+  height: ${p => p.theme.sizes.height[4]}px;
 
-  color: ${p => p.theme.colors.backgroundColor};
+  color: ${p => p.theme.colors.mainColor};
   border: ${p => p.theme.borders.middle};
   border-radius: ${p => p.theme.radii.btnRound}px;
 
@@ -55,7 +52,6 @@ export const BtnForm = styled.button`
   cursor: pointer;
 
   font-size: ${p => p.theme.fontSizes[2]}px;
- 
 
   transition: ${p => p.theme.transitions.transitionBtn};
   :hover,

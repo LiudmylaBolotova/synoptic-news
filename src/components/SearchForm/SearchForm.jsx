@@ -30,7 +30,7 @@ const SearchForm = ({ onSubmit }) => {
             type="text"
             name="query"
             autocomplete="on"
-            placeholder="Search images and photos"
+            placeholder="Enter location"
             // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             // title="The city name can only contain letters, apostrophe, dashes and spaces. For example: New-York, Paris, Kyiv, London."
             //           required

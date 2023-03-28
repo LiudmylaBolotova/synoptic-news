@@ -1,34 +1,54 @@
-const WeatherCardNow = ({info}) => {
+import {
+  StyledCard,
+  SectionDate,
+  WeatherNow,
+  SectionLastUpdate,
+  StyledTitleLocation,
+  StyledTitleCountry,
+  StyledFcCalendar,
+  StyledItem,
+  StyledLocalTime,
+} from './WeatherCardNow.styled';
 
-    const location = info.location;
-    const current = info.current;
-    return (
+const WeatherCardNow = ({ info }) => {
+  const location = info.location;
+  const current = info.current;
+
+  return (
+    <StyledCard>
       <div>
-        <h2>{location.country}</h2>
-        <p>{location.localtime}</p>
+        <SectionDate>
+          <StyledFcCalendar />
+          <StyledLocalTime>{location.localtime}</StyledLocalTime>
+        </SectionDate>
 
-        <ul>
-          <li>
-            <h3>Now in {location.name}</h3>
-          </li>
-          <li>{current.condition.icon}</li>
-          <li>
-            <p>{current.condition.text}</p>
-          </li>
-          <li>Last updated {current.last_updated}</li>
-          <li>Air temperature: {current.temp_c} C</li>
-          <li>Feels like: {current.feelslike_c} C</li>
+        <StyledTitleLocation>Now in {location.name}</StyledTitleLocation>
+        <StyledTitleCountry>{location.country}</StyledTitleCountry>
 
-          <li>Wind: {current.wind_kph}kph</li>
-          <li>Wind gust : {current.gust_kph} kph</li>
-          <li>Humidity: {current.humidity}%</li>
-          <li>Precip: {current.precip_mm} mm</li>
-          <li>Pressure: {current.pressure_mb} mb</li>
-        </ul>
+        <WeatherNow>
+          <img src={current.condition.icon} alt={'icon'} />
+          <p>{current.condition.text}</p>
+        </WeatherNow>
+
+        <SectionLastUpdate>
+          <StyledFcCalendar />
+          <p>Last updated {current.last_updated}</p>
+        </SectionLastUpdate>
       </div>
-    );
+      
+      <ul>
+        <StyledItem>Air temperature: {current.temp_c} C</StyledItem>
+        <StyledItem>Feels like: {current.feelslike_c} C</StyledItem>
+
+        <StyledItem>Wind: {current.wind_kph}kph</StyledItem>
+        <StyledItem>Wind gust : {current.gust_kph} kph</StyledItem>
+        <StyledItem>Humidity: {current.humidity}%</StyledItem>
+        <StyledItem>Precip: {current.precip_mm} mm</StyledItem>
+        <StyledItem>Pressure: {current.pressure_mb} mb</StyledItem>
+      </ul>
+
+    </StyledCard>
+  );
 };
-
-
 
 export default WeatherCardNow;

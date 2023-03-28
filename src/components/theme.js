@@ -1,14 +1,14 @@
 export const theme = {
   colors: {
-    text: '#000000',
-    twoText: '#FFFFFF',
+    text: '#FFFFFF',
     accent: '#B0C4DE',
-    backgroundColor: '#778899',
+    mainColor: '#778899',
+    sectionBackgroundColor: '#F0F8FF',
   },
 
   sizes: {
-    width: [1, 48, 70, 130, 180, 250, 300, 600, 850],
-    height: [1, 40, 48, 50, 64],
+    width: [1, 30, 48, 70, 130, 250, 260, 300, 600, 770, 870, 900],
+    height: [1, 30, 40, 48, 50, 64, 80],
   },
 
   fontSizes: [10, 14, 20],
@@ -18,23 +18,20 @@ export const theme = {
     bold: 700,
   },
 
-  space: [0, 2, 4, 10, 12, 20, 24, 30],
+  space: [0, 2, 4, 10, 12, 20, 24, 30, 40, 100],
 
   borders: {
-    normal: '2px solid #778899',
-    middle: '4px solid #778899',
-    // linkBottom: '1px dashed #FFFFFF',
-    // twoLinkBottom: '1px dashed #808080',
+    normal: '1px solid #778899',
+    middle: '3px solid #778899',
+    accent: '1px dashed #778899',
   },
 
   radii: {
-    round: 20,
-    btnRound: 30,
-    formRound: 15,
+    btnRound: 20,
+    formRound: 10,
   },
 
   transitions: {
     transitionBtn: 'background-color 300ms linear',
   },
 };
-
