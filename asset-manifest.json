@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/synoptic-news/static/css/main.9c5f71a9.css",
-    "main.js": "/synoptic-news/static/js/main.fd110ca8.js",
+    "main.js": "/synoptic-news/static/js/main.7d1011ac.js",
     "static/media/blue-sky-with-clouds-background.jpg": "/synoptic-news/static/media/blue-sky-with-clouds-background.f40561984b4d45db08ce.jpg",
     "static/media/thermometer2.png": "/synoptic-news/static/media/thermometer2.b66904850476d9d0a4ca.png",
     "index.html": "/synoptic-news/index.html",
     "main.9c5f71a9.css.map": "/synoptic-news/static/css/main.9c5f71a9.css.map",
-    "main.fd110ca8.js.map": "/synoptic-news/static/js/main.fd110ca8.js.map"
+    "main.7d1011ac.js.map": "/synoptic-news/static/js/main.7d1011ac.js.map"
   },
   "entrypoints": [
     "static/css/main.9c5f71a9.css",
-    "static/js/main.fd110ca8.js"
+    "static/js/main.7d1011ac.js"
   ]
 }
