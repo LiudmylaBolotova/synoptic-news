@@ -32,7 +32,7 @@ export const BodyPage = () => {
     setStatus(Status.PENDING);
     axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=950c57b6664c40c7867164945232503&q=${query}&days=3&aqi=no&alerts=no`,
+        `https://api.weatherapi.com/v1/forecast.json?key=950c57b6664c40c7867164945232503&q=${query}&days=3&aqi=no&alerts=no`,
         {
           signal: controller.signal,
         }
