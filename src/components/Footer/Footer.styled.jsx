@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledFooter = styled.header`
+export const StyledFooter = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +16,7 @@ export const StyledLink = styled.a`
   font-size: ${p => p.theme.fontSizes[2]}px;
 `;
 
-export const StyledText = styled.a`
+export const StyledText = styled.div`
   margin-right: ${p => p.theme.space[4]}px;
   color: ${p => p.theme.colors.text};
 `;

@@ -1,15 +1,14 @@
-import { StyledFooter } from './Footer.styled';
+import { StyledFooter, StyledText, StyledLink } from './Footer.styled';
 
 const Footer = () => {
   return (
     <StyledFooter>
-      <div>FOOTER</div>
-      {/* <StyledText>
+      <StyledText>
         Powered by &nbsp;
         <StyledLink href="https://www.weatherapi.com/" title="Weather API">
           WeatherAPI.com
         </StyledLink>
-      </StyledText> */}
+      </StyledText>
     </StyledFooter>
   );
 };

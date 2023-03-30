@@ -1,4 +1,5 @@
 import toast from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import {
   Form,
   SectionForm,
@@ -14,7 +15,7 @@ const SearchForm = ({ onSubmit }) => {
     const query = form.elements.query.value;
 
     if (query.trim() === '') {
-      return toast.error(` Please enter a valid location!`);
+      return toast.error(`Please enter a valid location!`);
     }
     onSubmit(query);
     console.log(query);
@@ -31,13 +32,14 @@ const SearchForm = ({ onSubmit }) => {
             name="query"
             autocomplete="on"
             placeholder="Enter location"
-            // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            // title="The city name can only contain letters, apostrophe, dashes and spaces. For example: New-York, Paris, Kyiv, London."
-            //           required
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="The city name can only contain letters, apostrophe, dashes and spaces. For example: New-York, Paris, Kyiv, London."
+            required
           />
         </label>
         <BtnForm type="submit">Search</BtnForm>
       </Form>
+      <Toaster />
     </SectionForm>
   );
 };

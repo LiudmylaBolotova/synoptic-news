@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import img from '../Images/blue-sky-with-clouds-background.jpg';
 
 export const SectionForm = styled.div`
@@ -58,6 +58,6 @@ export const BtnForm = styled.button`
   :focus {
     background-color: ${p => p.theme.colors.accent};
     border-color: ${p => p.theme.colors.accent};
-    color: ${p => p.theme.colors.twoText};
+    color: ${p => p.theme.colors.text};
   }
 `;

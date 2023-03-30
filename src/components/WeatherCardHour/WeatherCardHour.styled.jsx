@@ -6,6 +6,7 @@ export const StyledCard = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: ${p => p.theme.space[3]}px;
+  margin-bottom: ${p => p.theme.space[3]}px;
   border: ${p => p.theme.borders.normal};
   background-color: ${p => p.theme.colors.sectionBackgroundColor};
 `;
@@ -42,6 +43,7 @@ export const SectionDate = styled.div`
   margin: auto;
   width: ${p => p.theme.sizes.width[6]}px;
   color: ${p => p.theme.colors.mainColor};
+  border-bottom: ${p => p.theme.borders.accent};
 `;
 
 export const StyledItemWeather = styled.div`

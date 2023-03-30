@@ -27,7 +27,6 @@ const WeatherCardHour = ({ info }) => {
                     temp_c,
                     chance_of_rain,
                     cloud,
-                    icon,
                     condition,
                     feelslike_c,
                   }) => (

@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-// import toast from 'react-hot-toast';
 import Loader from '../Loader/Loader';
-import { StyledMainSection } from './BodyPage.styled';
-import SearchForm from 'components/SearchForm';
-import WeatherCardNow from 'components/WeatherCardNow';
-import ForecastDay from 'components/ForecastDay';
-import WeatherCardHour from 'components/WeatherCardHour';
+import { StyledMainSection, StyledTitle } from './BodyPage.styled';
+import SearchForm from 'components/SearchForm/SearchForm';
+import WeatherCardNow from 'components/WeatherCardNow/WeatherCardNow';
+import ForecastDay from 'components/ForecastDay/ForecastDay';
+import WeatherCardHour from 'components/WeatherCardHour/WeatherCardHour';
+import WeatherNewYork from 'components/WeatherNewYork/WeatherNewYork';
 
 const Status = {
   IDLE: 'idle',
@@ -44,7 +44,6 @@ export const BodyPage = () => {
       })
       .catch(error => {
         setStatus(Status.REJECTED);
-        // return toast.error(`Please enter a valid location!`);
         return error.massage;
       });
 
@@ -55,47 +54,39 @@ export const BodyPage = () => {
 
   if (status === Status.IDLE) {
     return (
-      <>
-        <div>
-          <StyledMainSection>
-            <SearchForm onSubmit={handleSearchForm} />
-            <div>IDLE</div>
-          </StyledMainSection>
-        </div>
-      </>
+      <StyledMainSection>
+        <SearchForm onSubmit={handleSearchForm} />
+        <WeatherNewYork />
+      </StyledMainSection>
     );
   }
 
   if (status === Status.PENDING) {
-    <>
+    return (
       <StyledMainSection>
         <SearchForm onSubmit={handleSearchForm} />
         <Loader />
       </StyledMainSection>
-    </>;
+    );
   }
 
   if (status === Status.RESOLVED) {
     return (
-      <>
-        <StyledMainSection>
-          <SearchForm onSubmit={handleSearchForm} />
-          <WeatherCardNow info={info} />
-          <ForecastDay info={info}></ForecastDay>
-          <WeatherCardHour info={info}></WeatherCardHour>
-        </StyledMainSection>
-      </>
+      <StyledMainSection>
+        <SearchForm onSubmit={handleSearchForm} />
+        <WeatherCardNow info={info} />
+        <ForecastDay info={info}></ForecastDay>
+        <WeatherCardHour info={info}></WeatherCardHour>
+      </StyledMainSection>
     );
   }
 
-  if (status === Status.REJECTED || info.length === 0) {
+  if (status === Status.REJECTED) {
     return (
-      <>
-        <StyledMainSection>
-          <SearchForm onSubmit={handleSearchForm} />
-          <div>No location found matching parameter!</div>
-        </StyledMainSection>
-      </>
+      <StyledMainSection>
+        <SearchForm onSubmit={handleSearchForm} />
+        <StyledTitle>No location found matching parameter!</StyledTitle>
+      </StyledMainSection>
     );
   }
 };

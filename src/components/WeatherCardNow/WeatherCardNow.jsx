@@ -35,7 +35,7 @@ const WeatherCardNow = ({ info }) => {
           <p>Last updated {current.last_updated}</p>
         </SectionLastUpdate>
       </div>
-      
+
       <ul>
         <StyledItem>Air temperature: {current.temp_c} C</StyledItem>
         <StyledItem>Feels like: {current.feelslike_c} C</StyledItem>
@@ -46,7 +46,6 @@ const WeatherCardNow = ({ info }) => {
         <StyledItem>Precip: {current.precip_mm} mm</StyledItem>
         <StyledItem>Pressure: {current.pressure_mb} mb</StyledItem>
       </ul>
-
     </StyledCard>
   );
 };

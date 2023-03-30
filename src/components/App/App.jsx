@@ -1,9 +1,9 @@
-import Header from 'components/Header';
-import BodyPage from 'components/BodyPage';
-import Footer from 'components/Footer';
+import Header from 'components/Header/Header';
+import BodyPage from 'components/BodyPage/BodyPage';
+import Footer from 'components/Footer/Footer';
 import { Container } from './App.styled';
 
- const App = () => {
+const App = () => {
   return (
     <Container>
       <Header />

@@ -17,7 +17,7 @@ const ForecastDay = ({ info }) => {
     <StyledCard>
       <StyledTitle>Forecast for the next 3 days</StyledTitle>
       <StyledSection>
-        {forecast.length > 0 ? (
+        {forecast.length > 0 &&
           forecast.map(({ date, astro, day }) => (
             <StyledPartList key={date}>
               <div>
@@ -32,27 +32,23 @@ const ForecastDay = ({ info }) => {
                 </StyledItemWeather>
               </div>
               <StyledList>
-              <StyledItem>
-                Sunrise: {astro.sunrise} - Sunset: {astro.sunset}
-              </StyledItem>
-              <StyledItem>
-                Moonrise: {astro.moonrise} - Moonset: {astro.moonset}
-              </StyledItem>
-              <StyledItem>
-                Temperature range: min {day.mintemp_c} C - max {day.maxtemp_c} C
-              </StyledItem>
+                <StyledItem>
+                  Sunrise: {astro.sunrise} - Sunset: {astro.sunset}
+                </StyledItem>
+                <StyledItem>
+                  Moonrise: {astro.moonrise} - Moonset: {astro.moonset}
+                </StyledItem>
+                <StyledItem>
+                  Temperature range: min {day.mintemp_c} C - max {day.maxtemp_c}
+                  C
+                </StyledItem>
 
-              <StyledItem>Daily chance of rain: {day.daily_chance_of_rain}</StyledItem>
-            </StyledList>
+                <StyledItem>
+                  Daily chance of rain: {day.daily_chance_of_rain}
+                </StyledItem>
+              </StyledList>
             </StyledPartList>
-          ))
-        ) : (
-          <ul>
-            <li>
-              <p>ERROR FORECAST</p>
-            </li>
-          </ul>
-        )}
+          ))}
       </StyledSection>
     </StyledCard>
   );
