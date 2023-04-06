@@ -16,7 +16,7 @@ const Status = {
 };
 
 export const BodyPage = () => {
-  const [status, setStatus] = useState(Status.PENDING);
+  const [status, setStatus] = useState(Status.IDLE);
   const [info, setInfo] = useState('');
   const [query, setQuery] = useState('');
 
