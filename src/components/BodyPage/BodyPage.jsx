@@ -75,8 +75,8 @@ export const BodyPage = () => {
       <StyledMainSection>
         <SearchForm onSubmit={handleSearchForm} />
         <WeatherCardNow info={info} />
-        <ForecastDay info={info}></ForecastDay>
-        <WeatherCardHour info={info}></WeatherCardHour>
+        <ForecastDay info={info}/>
+        <WeatherCardHour info={info}/>
       </StyledMainSection>
     );
   }

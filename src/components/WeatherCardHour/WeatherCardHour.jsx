@@ -20,39 +20,35 @@ const WeatherCardHour = ({ info }) => {
         {forecast ? (
           forecast.map(({ date, hour }) => (
             <StyledPartList key={date}>
-              <div>
-                {hour.map(
-                  ({
-                    time,
-                    temp_c,
-                    chance_of_rain,
-                    cloud,
-                    condition,
-                    feelslike_c,
-                  }) => (
-                    <div key={time}>
-                      <SectionDate>
-                        <StyledFcAlarmClock />
-                        <h4>Forecast for {time}</h4>
-                      </SectionDate>
+              {hour.map(
+                ({
+                  time,
+                  temp_c,
+                  chance_of_rain,
+                  cloud,
+                  condition,
+                  feelslike_c,
+                }) => (
+                  <div key={time}>
+                    <SectionDate>
+                      <StyledFcAlarmClock />
+                      <h4>Forecast for {time}</h4>
+                    </SectionDate>
 
-                      <StyledItemWeather>
-                        <img src={condition.icon} alt={'icon'} />
-                        <p>{condition.text}</p>
-                      </StyledItemWeather>
+                    <StyledItemWeather>
+                      <img src={condition.icon} alt={'icon'} />
+                      <p>{condition.text}</p>
+                    </StyledItemWeather>
 
-                      <StyledList>
-                        <StyledItem>Cloud: {cloud}</StyledItem>
-                        <StyledItem>Temperature: {temp_c} C</StyledItem>
-                        <StyledItem>Feelslike: {feelslike_c} C</StyledItem>
-                        <StyledItem>
-                          Chance of rain: {chance_of_rain}
-                        </StyledItem>
-                      </StyledList>
-                    </div>
-                  )
-                )}
-              </div>
+                    <StyledList>
+                      <StyledItem>Cloud: {cloud}</StyledItem>
+                      <StyledItem>Temperature: {temp_c} C</StyledItem>
+                      <StyledItem>Feelslike: {feelslike_c} C</StyledItem>
+                      <StyledItem>Chance of rain: {chance_of_rain}</StyledItem>
+                    </StyledList>
+                  </div>
+                )
+              )}
             </StyledPartList>
           ))
         ) : (

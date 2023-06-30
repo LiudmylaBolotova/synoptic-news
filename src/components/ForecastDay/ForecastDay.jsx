@@ -20,17 +20,16 @@ const ForecastDay = ({ info }) => {
         {forecast.length > 0 &&
           forecast.map(({ date, astro, day }) => (
             <StyledPartList key={date}>
-              <div>
-                <SectionDate>
-                  <StyledFcCalendar />
-                  <StyledLocalTime>{date}</StyledLocalTime>
-                </SectionDate>
+              <SectionDate>
+                <StyledFcCalendar />
+                <StyledLocalTime>{date}</StyledLocalTime>
+              </SectionDate>
 
-                <StyledItemWeather>
-                  <img src={day.condition.icon} alt={'icon'} />
-                  <p>{day.condition.text}</p>
-                </StyledItemWeather>
-              </div>
+              <StyledItemWeather>
+                <img src={day.condition.icon} alt={'icon'} />
+                <p>{day.condition.text}</p>
+              </StyledItemWeather>
+
               <StyledList>
                 <StyledItem>
                   Sunrise: {astro.sunrise} - Sunset: {astro.sunset}
